@@ -1,46 +1,161 @@
-# Getting Started with Create React App
+<h1 align="center">Desafio 02 - Refactoring de classes e typescript</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">
+    <img alt="Onboarding pokemon" src="https://user-images.githubusercontent.com/9595529/160224809-46ee20b5-0f2b-4a2b-bf58-0a4ff5348a75.png" />
+</h1>
 
-## Available Scripts
+<br>
 
-In the project directory, you can run:
+## 🧪 Tecnologias
 
-### `yarn start`
+Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [React](https://reactjs.org)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Styled components](https://styled-components.com/)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 🚀 Como executar
 
-### `yarn test`
+Clone o projeto e acesse a pasta do mesmo.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+$ git clone https://github.com/andregodasi/desafio-refactoring-classes-typescript
 
-### `yarn build`
+$ cd desafio-refactoring-classes-typescript
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Para iniciá-lo, siga os passos abaixo:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+# Instalar as dependências
+$ yarn
 
-### `yarn eject`
+# Iniciar o projeto
+$ yarn start
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Realizar os testes
+$ yarn test
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+O app estará disponível no seu browser pelo endereço http://localhost:3000.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# 💻 Projeto
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Esse projeto é um exercício do curso Ignite da plataforma [Rocketseat](https://www.rocketseat.com.br/), os detables estão logo abaixo.
 
-## Learn More
+## 🏅 Sobre o desafio
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Nesse desafio, você deverá criar uma aplicação para treinar o que aprendeu até agora no ReactJS
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Essa será uma aplicação já funcional onde o seu principal objetivo é realizar dois processos de migração: de Javascript para Typescript e de Class Components para Function Components.
+
+A seguir veremos com mais detalhes o que e como precisa ser feito 🚀
+
+## Template da aplicação
+
+Para realizar esse desafio, criamos para você esse modelo que você deve utilizar como um template do GitHub.
+
+O template está disponível na seguinte URL:
+
+[](https://github.com/rocketseat-education/ignite-template-reactjs-refactoring-classes-ts)
+
+**Dica**: Caso não saiba utilizar repositórios do GitHub como template, temos um guia em **[nosso FAQ](https://www.notion.so/FAQ-Desafios-ddd8fcdf2339436a816a0d9e45767664).**
+
+## Se preparando para o desafio
+
+Para esse desafio, além dos conceitos vistos em aula utilizaremos o JSON server para criar uma Fake API com os dados das comidas.
+
+### Fake API com JSON Server
+
+Assim como utilizamos o MirageJS no módulo 2 para simular uma API com os dados das transações da aplicação dt.money, vamos utilizar o JSON Server para simular uma API que possui as informações das comidas.
+
+Navegue até a pasta criada, abra no Visual Studio Code e execute os seguintes comandos no terminal:
+
+```bash
+yarn
+yarn server
+```
+
+Em seguida, você vai ver a mensagem:
+
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c36df318-fb33-4a83-9d58-8f75b9be249c/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c36df318-fb33-4a83-9d58-8f75b9be249c/Untitled.png)
+
+Perceba que ele iniciou uma fake API com o recurso `/foods` em `localhost` na porta `3333` a partir das informações do arquivo [server.json](https://github.com/rocketseat-education/ignite-template-reactjs-refactoring-classes-ts/blob/master/server.json) localizado na raiz do seu projeto. Acessando essa rota no seu navegador, você consegue ver o retorno das informações já em JSON:
+
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bc8fd976-5a03-453d-8510-cf8a6925d4e8/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bc8fd976-5a03-453d-8510-cf8a6925d4e8/Untitled.png)
+
+Dessa forma, basta consumir essas rotas da API normalmente com o Axios. Caso queira estudar mais sobre o **JSON Server**, dê uma olhada aqui:
+
+[typicode/json-server](https://github.com/typicode/json-server)
+
+## O que devo editar na aplicação?
+
+Com o template já clonado, as depêndencias instaladas e a [fake API rodando](https://www.notion.so/Desafio-02-Refactoring-de-classes-e-typescript-4571541e7f8c4799bd191b6cfb53802c), você deve editar os seguintes arquivos:
+
+- src/components/Food/index.jsx;
+- src/components/Food/styles.js;
+- src/components/Header/index.jsx;
+- src/components/Header/styles.js;
+- src/components/Input/index.jsx;
+- src/components/Input/styles.js;
+- src/components/Modal/index.jsx;
+- src/components/ModalAddFood/index.jsx;
+- src/components/ModalAddFood/styles.js;
+- src/components/ModalEditFood/index.jsx;
+- src/components/ModalEditFood/styles.js;
+- src/pages/Dashboard/index.jsx;
+- src/pages/Dashboard/styles.js;
+- src/routes/index.jsx;
+- src/services/api.js;
+- src/styles/global.js;
+- src/App.js;
+- src/index.js.
+
+Todos esses arquivos devem ser migrados de Javascript para Typescript. Além disso, os arquivos que possuírem componentes em classe devem ser migrados para componentes funcionais.
+
+## Preparando ambiente Typescript
+
+Como esse é um projeto CRA sem TypeScript, você primeiro precisar instalar as dependências/tipagens e configurar o TS. Nossa sugestão é criar um novo projeto CRA com Typescript e comparar a estrutura atual com a que você precisa ter. Realizando essa comparação, facilmente você consegue ver que:
+
+- É preciso instalar o `typescript`
+- É preciso criar um arquivo de configuração `tsconfig.json`. Inclusive, você pode utilizar a configuração gerada automaticamente no CRA template Typescript para criar o seu arquivo.
+- É preciso criar um arquivo `react-app-env.d.ts` com o conteúdo:
+
+```tsx
+/// <reference types="react-scripts" />
+```
+
+- É preciso instalar as tipagens das bibliotecas.
+
+Configurando esse setup, você deve ser capaz de trabalhar normalmente com o Typescript no seu projeto.
+
+## Estou com dificuldade na conversão classes→função
+
+Caso você tenha dificuldade nesse processo de migração, dê uma olhada no nosso guia sobre esse assunto:
+
+[Componentes no React](https://www.notion.so/Componentes-no-React-6644d41da663405cb29dcaae1693bb9f)
+
+## Como deve ficar a aplicação ao final?
+
+Nesse desafio você já recebe a aplicação totalmente funcional, então todos os recursos mostrados no vídeo abaixo já estão implementados no template e devem permanecer funcionado após suas alterações.
+
+[https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d7d94fcf-b6af-40eb-a215-731ac274e475/Peek_2021-03-10_10-43.mp4](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d7d94fcf-b6af-40eb-a215-731ac274e475/Peek_2021-03-10_10-43.mp4)
+
+---
+
+## 🦸 Autor
+
+<a href="https://www.linkedin.com/in/andre-godasi/">
+ <img style="border-radius: 50%;" src="https://user-images.githubusercontent.com/9595529/160224848-905a0f0d-dd38-4c13-a814-4085e5e51aa9.png" width="100px;" alt=""/>
+ <br />
+ <sub><b>André Gonçalves</b></sub></a> <a href="https://www.linkedin.com/in/andre-godasi/" title="André Gonçalves">🚀</a>
+ <br />
+
+---
+
+## 📝 License
+
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
+
+Feito com ❤️ por André Gonçalves 👋🏽 [Entre em contato!](https://www.linkedin.com/in/andre-godasi/)
